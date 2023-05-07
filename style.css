@@ -1,3 +1,14 @@
+body{
+    font-family: 'Alkatra', cursive;
+}
+
 .hero{
     background-image: url('images/banner_1.png');
+}
+
+#favorite-dishes{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding-top: 1.5rem;
 }
