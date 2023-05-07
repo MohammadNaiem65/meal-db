@@ -27,7 +27,30 @@
         </nav>
         <div class="divider w-[90%] mx-auto"></div>
     </header>
+    <main>
+        <h1 class="text-4xl font-bold text-center mt-14 mb-5">Search Your Favorite Meal</h1>
+        <div class="relative w-1/2 mx-auto">
+            <button class="absolute top-1/2 left-4 transform -translate-y-1/2">
+                <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path id="Vector"
+                            d="M15 15L21 21M10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17Z"
+                            stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                </svg>
+            </button>
+            <input id="searched-meal" type="text" placeholder="Search…" class="input w-full text-slate-400 pl-14 bg-slate-200" onkeydown="loadMeals()"/>
+            <button name="search" class="btn btn-warning font-bold absolute right-0 text-white" onclick="loadMeals()">Search</button>
+        </div>
 
+        <!-- Meals -->
+        <div id="meals" class="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-6 my-10"></div>
+
+        <!-- Errors -->
+        <div>
+            <p id="error-message" class="text-red-500 font-bold text-center w-[90%] mx-auto"> Please Searh</p>
+        </div>
+    </main>
 
     <script src="app.js"></script>
 </body>
