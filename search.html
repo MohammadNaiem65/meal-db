@@ -39,7 +39,7 @@
                     </g>
                 </svg>
             </button>
-            <input id="searched-meal" type="text" placeholder="Search…" class="input w-full text-slate-400 pl-14 bg-slate-200" onkeydown="loadMeals()"/>
+            <input id="searched-meal" type="text" placeholder="Search…" class="input w-full text-slate-400 pl-14 bg-slate-200" onkeydown="loadMeals(e)"/>
             <button name="search" class="btn btn-warning font-bold absolute right-0 text-white" onclick="loadMeals()">Search</button>
         </div>
 
@@ -48,7 +48,7 @@
 
         <!-- Errors -->
         <div>
-            <p id="error-message" class="text-red-500 font-bold text-center w-[90%] mx-auto"> Please Searh</p>
+            <p id="error-message" class="text-red-500 font-bold text-center w-[90%] mx-auto hidden">sear</p>
         </div>
     </main>
 

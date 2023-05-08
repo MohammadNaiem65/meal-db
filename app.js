@@ -1,21 +1,35 @@
 let favorite = [];
+let errMsg;
 let mealsContainer = document.getElementById("meals");
-
+const errorContainer = document.getElementById("error-message");
 
 // Loading meals from API
 const loadMeals = () => {
-    let keyword = document.getElementById("searched-meal").value;
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${keyword}`)
-      .then((res) => res.json())
-      .then((data) => displayMeals(data.meals));
+  errorContainer.classList.add("hidden");
+  let keyword = document.getElementById("searched-meal").value;
+  if (keyword == "" || keyword == " " || keyword == "  " || keyword == "   ") {
+    mealsContainer.innerHTML = "";
+    errMsg = "Please search something!";
+    showError();
+    return;
+  }
+  fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${keyword}`)
+    .then((res) => res.json())
+    .then((data) => displayMeals(data.meals));
 };
-
 
 // Displaying meals in the UI
 const displayMeals = (meals) => {
-    mealsContainer.innerHTML = '';
+  mealsContainer.innerHTML = "";
   meals.map((meal) => {
-    let {strMeal: mealName, idMeal, strCategory, strArea, strInstructions, strMealThumb} = meal;
+    let {
+      strMeal: mealName,
+      idMeal,
+      strCategory,
+      strArea,
+      strInstructions,
+      strMealThumb,
+    } = meal;
     // Shorting String
     if (mealName.length >= 25) {
       mealName = mealName.slice(0, 25) + "...";
@@ -46,6 +60,11 @@ const displayMeals = (meals) => {
   });
 };
 
+// Show errors
+const showError = () => {
+  errorContainer.innerText = errMsg;
+  errorContainer.classList.remove("hidden");
+};
 
 // Function to Switch page
 const switchPage = (btn) => {
